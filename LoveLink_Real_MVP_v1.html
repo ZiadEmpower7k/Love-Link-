@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LoveLink — More Than Just Gifts</title>
+<meta name="description" content="LoveLink — هدايا رقمية وتجارب تفاعلية مخصصة للكابلز.">
+<style>
+:root{--bg:#0d0b10;--panel:#17131a;--panel2:#211a23;--text:#fff;--muted:#aaa2ad;--pink:#ff5b96;--pink2:#ff8ab4;--line:#302833}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% -10%,#3c1128 0,#0d0b10 34%);color:var(--text);font-family:Arial,Tahoma,sans-serif}
+a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92%);margin:auto}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.logo{font-size:27px;font-weight:900}.logo span{color:var(--pink)}.nav{display:flex;gap:24px;color:#c8c1ca;font-size:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;padding:13px 21px;border-radius:999px;background:linear-gradient(135deg,var(--pink),var(--pink2));color:#160d12;font-weight:900}
+.btn.alt{background:#211b23;color:#fff;border:1px solid #413642}.hero{text-align:center;padding:85px 0 75px}
+.badge{display:inline-block;border:1px solid #ff5b9666;color:#ff9abb;padding:8px 15px;border-radius:30px;font-size:12px}
+h1{font-size:clamp(44px,7vw,78px);line-height:1.04;margin:20px 0 16px}h1 span{color:var(--pink)}
+.hero p{max-width:720px;margin:0 auto 28px;color:#b9b1bc;font-size:18px;line-height:1.8}.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.sec{padding:68px 0}.title{text-align:center;margin-bottom:34px}.title h2{font-size:34px;margin:0 0 8px}.title p{color:var(--muted)}
+.cards,.products,.steps{display:grid;gap:16px}.cards{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(4,1fr)}.steps{grid-template-columns:repeat(4,1fr)}
+.card,.product,.step{background:linear-gradient(180deg,#19151c,#141117);border:1px solid var(--line);border-radius:22px;padding:23px;box-shadow:0 12px 35px #0004}
+.icon,.emoji{font-size:34px}.card p,.product p,.step p{color:#a9a1ab;line-height:1.7;font-size:14px}
+.product .price{color:#ff8fb5;font-size:13px;font-weight:800;margin:12px 0}.product button{width:100%;padding:11px;border:1px solid #413642;border-radius:12px;background:#27212a;color:#fff;cursor:pointer;font-weight:800}
+.step b{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#ff5b9620;color:var(--pink);font-size:18px}
+.cta{text-align:center;margin:15px auto 70px;padding:55px 20px;width:min(950px,92%);border-radius:28px;background:linear-gradient(135deg,#351326,#21111c);border:1px solid #ff5b9345}.cta h2{font-size:38px;margin:0 0 10px}
+footer{text-align:center;border-top:1px solid var(--line);padding:28px;color:#777;font-size:13px}
+.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:18px;z-index:50}.modal.show{display:flex}
+.box{width:min(620px,100%);max-height:92vh;overflow:auto;background:#17131a;border:1px solid #3a303e;border-radius:24px;padding:24px;box-shadow:0 30px 90px #000}
+.box h2{margin-top:0}.close{float:left;background:none;border:0;color:#aaa;font-size:28px;cursor:pointer}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{display:block;color:#cfc7d1;font-size:13px;margin:8px 0 6px}input,textarea,select{width:100%;background:#0f0d12;color:#fff;border:1px solid #3a303e;border-radius:12px;padding:12px;font:inherit}textarea{min-height:100px;resize:vertical}
+.full{grid-column:1/-1}.note{background:#211b23;border:1px solid #3a303e;padding:12px;border-radius:12px;color:#aaa;font-size:12px;line-height:1.6}
+.quiz{display:none}.quiz.show{display:block}.q{background:#211b23;border:1px solid #3b313e;border-radius:17px;padding:18px;margin:12px 0}.answers{display:grid;gap:8px}.answer{background:#151117;border:1px solid #403441;color:#fff;border-radius:12px;padding:11px;text-align:right;cursor:pointer}.answer.selected{border-color:var(--pink);background:#ff5b9617}
+.result{display:none;text-align:center}.result.show{display:block}.score{font-size:64px;font-weight:900;color:var(--pink)}
+.progress{height:8px;background:#2a232d;border-radius:20px;overflow:hidden;margin:14px 0 22px}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--pink2));transition:.25s}
+.sharebox{display:grid;gap:10px}.sharebox input{direction:ltr}
+@media(max-width:800px){.nav{display:none}.cards,.products,.steps{grid-template-columns:1fr 1fr}}@media(max-width:520px){.cards,.products,.steps,.formgrid{grid-template-columns:1fr}.full{grid-column:auto}.hero{padding-top:55px}}
+</style>
+</head>
+<body>
+<header class="wrap"><nav>
+  <div class="logo">Love<span>Link</span> ❤️</div>
+  <div class="nav"><a href="#products">الهدايا</a><a href="#how">إزاي بتشتغل؟</a><a href="#about">عن LoveLink</a></div>
+  <a class="btn" href="#products">ابدأ المفاجأة</a>
+</nav></header>
+
+<section class="hero"><div class="wrap">
+  <div class="badge">DIGITAL GIFTS • COUPLE EXPERIENCES</div>
+  <h1>حوّل حبك لـ<br><span>تجربة مبتتنسيش.</span></h1>
+  <p>مش مجرد هدية... اعمل تجربة مخصوصة ليكم، فيها صور وذكريات ورسائل وألعاب تفاعلية.</p>
+  <div class="actions"><a class="btn" href="#products">اكتشف الهدايا ❤️</a><a class="btn alt" href="#how">شوف الفكرة</a></div>
+</div></section>
+
+<section class="sec" id="about"><div class="wrap"><div class="title"><h2>More Than Just Gifts</h2><p>LoveLink بيحوّل الذكريات لحاجة تقدروا تعيشوها تاني.</p></div>
+<div class="cards">
+<div class="card"><div class="icon">🎁</div><h3>هدايا مخصصة</h3><p>كل تجربة باسمكم ورسائلكم وتفاصيلكم.</p></div>
+<div class="card"><div class="icon">💌</div><h3>مشاعر بتتحكي</h3><p>بدل رسالة عادية، خلّي كلامك جزء من تجربة.</p></div>
+<div class="card"><div class="icon">🎮</div><h3>تجارب تفاعلية</h3><p>اختبارات وألعاب ومفاجآت تخلي الطرف التاني يشارك.</p></div>
+</div></div></section>
+
+<section class="sec" id="products"><div class="wrap"><div class="title"><h2>اختار مفاجأتك</h2><p>أول مجموعة من LoveLink — والمنتجات هتكبر مع الوقت.</p></div>
+<div class="products">
+<div class="product"><div class="emoji">❤️</div><h3>Couple Quiz</h3><p>جاوبوا وشوفوا قد إيه أنتم فاهمين بعض.</p><div class="price">السعر: قريبًا</div><button onclick="openQuiz()">ابدأ الـ Quiz</button></div>
+<div class="product"><div class="emoji">🔐</div><h3>Secret Love Box</h3><p>رسائل ومفاجآت مخبّية تتفتح واحدة واحدة.</p><div class="price">السعر: قريبًا</div><button onclick="openOrder('Secret Love Box')">اطلب التجربة</button></div>
+<div class="product"><div class="emoji">💌</div><h3>Digital Love Letter</h3><p>جواب حب متصمم مخصوص ليكم.</p><div class="price">السعر: قريبًا</div><button onclick="openOrder('Digital Love Letter')">اطلب التجربة</button></div>
+<div class="product"><div class="emoji">⏳</div><h3>Time Capsule</h3><p>احفظوا لحظتكم وافتحوها في المستقبل.</p><div class="price">السعر: قريبًا</div><button onclick="openOrder('Time Capsule')">اطلب التجربة</button></div>
+</div></div></section>
+
+<section class="sec" id="how"><div class="wrap"><div class="title"><h2>التجربة ببساطة</h2><p>من الاختيار لحد مشاركة اللينك.</p></div>
+<div class="steps">
+<div class="step"><b>1</b><h3>اختار</h3><p>اختار التجربة المناسبة.</p></div>
+<div class="step"><b>2</b><h3>خصص</h3><p>ضيف الأسماء والرسالة والتفاصيل.</p></div>
+<div class="step"><b>3</b><h3>أكد الطلب</h3><p>يتم تجهيز التجربة بعد تأكيد الدفع.</p></div>
+<div class="step"><b>4</b><h3>شارك</h3><p>خد اللينك الخاص وابعت المفاجأة.</p></div>
+</div></div></section>
+
+<div class="cta"><h2>عايز تفاجئها؟ 😏❤️</h2><p>إحنا علينا الباقي.</p><a class="btn" href="#products">ابدأ دلوقتي</a></div>
+<footer>© 2026 LoveLink — MORE THAN JUST GIFTS ❤️</footer>
+
+<div class="modal" id="orderModal"><div class="box">
+<button class="close" onclick="closeModal('orderModal')">×</button><h2 id="orderTitle">اطلب تجربتك 🎁</h2>
+<div class="formgrid">
+<div><label>اسمك</label><input id="o1" placeholder="مثلاً: زياد"></div>
+<div><label>اسم الطرف التاني</label><input id="o2" placeholder="مثلاً: زينة"></div>
+<div class="full"><label>رقم واتساب للتواصل</label><input id="phone" inputmode="tel" placeholder="01xxxxxxxxx"></div>
+<div class="full"><label>رسالة أو تفاصيل إضافية</label><textarea id="msg" placeholder="اكتب أي تفاصيل تحب تضيفها..."></textarea></div>
+<div class="full note">دي نسخة MVP للتجربة. بيانات الطلب بتتسجل محليًا على الجهاز، ولما نربط قاعدة البيانات والدفع هتتحول العملية لنظام أونلاين كامل.</div>
+<div class="full"><button class="btn" style="width:100%" onclick="submitOrder()">تأكيد الطلب</button></div>
+</div></div></div>
+
+<div class="modal" id="quizModal"><div class="box">
+<button class="close" onclick="closeModal('quizModal')">×</button>
+<div id="quizStart">
+<h2>Couple Quiz ❤️</h2><p style="color:#aaa">اكتبوا الأسماء، وبعدها الشخص الأول يجاوب ويطلع لينك للطرف التاني.</p>
+<div class="formgrid">
+<div><label>اسم الشخص الأول</label><input id="qname1"></div>
+<div><label>اسم الشخص الثاني</label><input id="qname2"></div>
+</div><br><button class="btn" style="width:100%" onclick="startQuiz()">ابدأ</button>
+</div>
+<div class="quiz" id="quizArea"><h2 id="quizWho"></h2><div class="progress"><i id="bar"></i></div><div id="questions"></div><button class="btn" style="width:100%" onclick="nextQuiz()">التالي</button></div>
+<div class="result" id="quizResult"><div class="score" id="score">0%</div><h2 id="resultTitle"></h2><p id="resultText" style="color:#aaa;line-height:1.8"></p><div class="sharebox"><input id="shareUrl" readonly><button class="btn" onclick="copyShare()">انسخ لينك الطرف التاني 🔗</button><button class="btn alt" onclick="location.href=location.href.split('#')[0]">إعادة</button></div></div>
+</div></div>
+
+<script>
+const questions=[
+ ["مين فيكم بيفتكر التفاصيل الصغيرة أكتر؟",["أنا","هو/هي","الاتنين"]],
+ ["إيه أكتر حاجة بتحبوا تعملوها سوا؟",["خروجة","فيلم/مسلسل","قعدة وكلام"]],
+ ["مين بيصالح التاني أسرع؟",["أنا","هو/هي","حسب الموقف"]],
+ ["مين بيبعت رسائل أكتر؟",["أنا","هو/هي","متقاربين"]],
+ ["إيه الهدية اللي تفرح أكتر؟",["حاجة شخصية","خروجة","رسالة/ذكريات"]],
+ ["مين بيغير خطط التاني؟",["أنا","هو/هي","الاتنين"]],
+ ["مين بيضحك التاني أكتر؟",["أنا","هو/هي","الاتنين"]],
+ ["لو عندكم يوم فاضي، تختاروا؟",["مغامرة","راحة في البيت","الاتنين"]],
+ ["مين بيفتكر التواريخ؟",["أنا","هو/هي","ولا واحد 😅"]],
+ ["إيه أهم حاجة في العلاقة؟",["الثقة","الاهتمام","الاتنين"]]
+];
+let mode="create",idx=0,answers=[];
+let names={a:"",b:""},token="";
+function show(id){document.getElementById(id).classList.add("show")}
+function closeModal(id){document.getElementById(id).classList.remove("show")}
+function openOrder(product){document.getElementById("orderTitle").textContent="اطلب "+product+" 🎁";show("orderModal")}
+function submitOrder(){
+ const order={id:"LL-"+Date.now().toString(36).toUpperCase(),product:document.getElementById("orderTitle").textContent.replace("اطلب ","").replace(" 🎁",""),name:document.getElementById("o1").value.trim(),partner:document.getElementById("o2").value.trim(),phone:document.getElementById("phone").value.trim(),message:document.getElementById("msg").value.trim(),createdAt:new Date().toISOString()};
+ if(!order.name||!order.partner||!order.phone){alert("اكتب الاسمَين ورقم واتساب الأول.");return}
+ const orders=JSON.parse(localStorage.getItem("lovelink_orders")||"[]");orders.push(order);localStorage.setItem("lovelink_orders",JSON.stringify(orders));
+ alert("تم إنشاء الطلب التجريبي رقم "+order.id+" ❤️\nالخطوة التالية في النسخة التجارية: الدفع + إرسال اللينك تلقائيًا.");
+ closeModal("orderModal");
+}
+function openQuiz(){show("quizModal")}
+function startQuiz(){
+ names.a=document.getElementById("qname1").value.trim();names.b=document.getElementById("qname2").value.trim();
+ if(!names.a||!names.b){alert("اكتب الاسمين الأول.");return}
+ mode="create";idx=0;answers=[];token=Math.random().toString(36).slice(2,8).toUpperCase();
+ document.getElementById("quizStart").style.display="none";document.getElementById("quizArea").classList.add("show");renderQuestion();
+}
+function renderQuestion(){
+ document.getElementById("quizWho").textContent=(mode==="create"?names.a:names.b)+" — سؤال "+(idx+1)+" من "+questions.length;
+ document.getElementById("bar").style.width=((idx)/questions.length*100)+"%";
+ const q=questions[idx],wrap=document.getElementById("questions");
+ wrap.innerHTML='<div class="q"><h3>'+q[0]+'</h3><div class="answers">'+q[1].map((x,i)=>'<button class="answer" onclick="pick('+i+',this)">'+x+'</button>').join("")+'</div></div>';
+}
+function pick(i,el){answers[idx]=i;document.querySelectorAll(".answer").forEach(x=>x.classList.remove("selected"));el.classList.add("selected")}
+function nextQuiz(){
+ if(answers[idx]===undefined){alert("اختار إجابة الأول ❤️");return}
+ if(idx<questions.length-1){idx++;renderQuestion();return}
+ document.getElementById("bar").style.width="100%";
+ if(mode==="create"){
+   const payload=btoa(unescape(encodeURIComponent(JSON.stringify({n:names,ans:answers,t:token}))));
+   const url=location.origin+location.pathname+"#quiz="+encodeURIComponent(payload);
+   document.getElementById("shareUrl").value=url;
+   document.getElementById("quizArea").classList.remove("show");show("quizResult");
+   document.getElementById("resultTitle").textContent="تمام يا "+names.a+" ❤️";
+   document.getElementById("resultText").textContent="اللينك جاهز. ابعته لـ "+names.b+" وخليه يجاوب.";
+ }else finishSecond();
+}
+function finishSecond(){
+ const raw=decodeURIComponent(location.hash.split("quiz=")[1]||"");
+ let data;try{data=JSON.parse(decodeURIComponent(escape(atob(raw))))}catch(e){alert("اللينك غير صالح.");return}
+ let same=answers.filter((x,i)=>x===data.ans[i]).length;
+ let score=Math.round(same/questions.length*100);
+ document.getElementById("quizArea").classList.remove("show");show("quizResult");
+ document.getElementById("score").textContent=score+"%";
+ document.getElementById("resultTitle").textContent=score>=80?"متفاهمين جدًا ❤️":score>=50?"بينكم كيمياء حلوة 💕":"كل واحد فيكم ليه شخصيته 😄";
+ document.getElementById("resultText").textContent="النتيجة مبنية على تطابق إجاباتكم في "+questions.length+" أسئلة. في النسخة التجارية هنضيف تصميم نتيجة أقوى وبيانات محفوظة على السيرفر.";
+ document.getElementById("shareUrl").style.display="none";
+}
+function copyShare(){navigator.clipboard.writeText(document.getElementById("shareUrl").value).then(()=>alert("اتنسخ اللينك 🔗")).catch(()=>alert("انسخ اللينك يدويًا"))}
+(function(){
+ if(location.hash.startsWith("#quiz=")){
+   show("quizModal");document.getElementById("quizStart").style.display="none";document.getElementById("quizArea").classList.add("show");
+   mode="second";idx=0;answers=[];renderQuestion();
+ }
+})();
+</script>
+</body></html>
